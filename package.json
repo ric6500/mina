@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^8.22.0",
     "react-addons-perf": "^15.4.2",
     "react-perf-tool": "^0.2.3"
   }
