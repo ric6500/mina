@@ -7,6 +7,27 @@ const src =
 
 class App extends Component {
 
+  state = {
+    message: ''
+  };
+
+  onClick = async (event) => {
+    event.preventDefault();
+
+    console.log(Date.now());
+
+
+    this.setState({ message: 'Stress test in progress' })
+
+    for(let startValue = 2; startValue < 2000000; startValue++) {
+        console.log(startValue);
+    }
+
+    console.log(Date.now());
+
+    this.setState({ message: 'Stress test ended!' });
+  };
+
 
 render() {
   return (
@@ -18,18 +39,22 @@ render() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://web.basemark.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
         </a>
+        <h4>Ready for a stress test?</h4>
+        <button onClick={this.onClick}>Start now!</button>
+        <h1>{this.state.message}</h1>
         <video controls width="100%">
       <source src={src} type="video/mp4" />
       Sorry, your browser doesn't support embedded videos.
     </video>
       </header>
     </div>
+
   );
 }
 }
