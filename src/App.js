@@ -31,7 +31,7 @@ class App extends Component {
 
     console.log(finalTiming);
 
-    this.setState({ message: 'Stress test ended in!');
+    this.setState({ message: 'Stress test ended in!'});
   };
 
 
