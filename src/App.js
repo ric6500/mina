@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import web3 from './web3';
+import contract from './my-first-dfinity-app-contract';
 
 const src =
 "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/panasonic-hokkaido-and-tokyo-uhd-(www.demolandia.net).mp4";
@@ -8,7 +10,14 @@ const src =
 class App extends Component {
 
   state = {
-    message: ''
+    message: '',
+    apps: [],
+  };
+
+  async componentDidMount() {
+    const apps = await contract.methods.getApps().call();
+
+    this.setState({ apps });
   };
 
   onClick = async (event) => {
@@ -31,7 +40,7 @@ class App extends Component {
 
     console.log(finalTiming);
 
-    this.setState({ message: 'Stress test ended in!'});
+    this.setState({ message: 'Stress test ended!'});
   };
 
 
@@ -43,6 +52,9 @@ render() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <h2>{this.state.apps}</h2>
+
+        <hr />
         <a
           className="App-link"
           href="https://web.basemark.com/"
