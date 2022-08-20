@@ -16,6 +16,8 @@ class App extends Component {
 
     console.log(Date.now());
 
+    let initialStart = Date.now();
+
 
     this.setState({ message: 'Stress test in progress' })
 
@@ -25,7 +27,11 @@ class App extends Component {
 
     console.log(Date.now());
 
-    this.setState({ message: 'Stress test ended!' });
+    let finalTiming = Date.now() - initialStart;
+
+    console.log(finalTiming);
+
+    this.setState({ message: 'Stress test ended in!');
   };
 
 
