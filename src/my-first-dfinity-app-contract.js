@@ -1,6 +1,6 @@
 import web3 from './web3';
 
-const address = '0x663FadEa641AE30fC8E325eAF8A52bb451002944';
+const address = '0x1A4Dba125b6183845e410200fDc37Bc4a1f8E1c6';
 
 const abi = [
 	{
@@ -23,6 +23,25 @@ const abi = [
 		],
 		"name": "enterApp",
 		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "endValue",
+				"type": "uint256"
+			}
+		],
+		"name": "executeCalculus",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
 		"stateMutability": "payable",
 		"type": "function"
 	},
