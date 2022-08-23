@@ -3,17 +3,32 @@ import logo from './logo.svg';
 import './App.css';
 import web3 from './web3';
 import contract from './mina-main-contract';
-import { useWeb3React } from "@web3-react/core"
-import jazzicon from "@metamask/jazzicon"
+import apps_list from './apps_list.json'
 
 const src =
 "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/panasonic-hokkaido-and-tokyo-uhd-(www.demolandia.net).mp4";
 
 function AppLink(app) {
   const handleClick = () => {
-    window.open(app.appLink);
+    window.open(app.url);
   };
-  return <button onClick={handleClick}>{app.appName}</button>
+  return( <div style={{
+        display: 'inline-flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+    <img src={app.logo_url} height="60px" width="60px"/>
+
+   <button style={{
+          maxWidth: "300px",
+          maxHeight: "100px",
+          minWidth: "200px",
+          minHeight: "60px"
+        }} onClick={handleClick}>{app.name}
+
+        </button>
+        </div>
+    );
 }
 
 class App extends Component {
@@ -29,8 +44,8 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    const apps = await contract.methods.getApps().call();
     const accounts = await web3.eth.getAccounts();
+    const apps = await contract.methods.getApps().call();
 
     this.setState({ apps: apps, accounts: accounts});
   };
@@ -88,7 +103,7 @@ render() {
         without worrying about your local hardware, anymore.
         </p>
         <ul>
-          {this.state.apps.map((app) => <AppLink appName={app.appName} appLink={app.appLink} key={app.id}/>)}
+          {apps_list.map((app) => <AppLink name={app.name} url={app.url} key={app.name} logo_url={app.logo_url}/>)}
         </ul>
         <hr/>
         <form onSubmit={this.onSubmit}>

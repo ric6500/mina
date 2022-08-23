@@ -1,0 +1,464 @@
+[
+  {
+    "name": "ICPBunny",
+    "principal_id": "xkbqi-2qaaa-aaaah-qbpqq-cai",
+    "description": "A bunny-themed NFT collection that uses utility tokens to enable yieldable and breedable NFTs on the Internet Computer.",
+    "url": "https://k7gat-daaaa-aaaae-qaahq-cai.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/ICPBunny.png"
+  },
+  {
+    "name": "ICP News",
+    "principal_id": "uzhxd-ziaaa-aaaah-qanaq-cai",
+    "description": "An NFT collection set designed by the @icp_news artist with an Internet Computer theme.",
+    "url": "https://twitter.com/icp_news",
+    "logo_url": "https://uzhxd-ziaaa-aaaah-qanaq-cai.raw.ic0.app/?tokenid=3qdzl-jikor-uwiaa-aaaaa-b4adi-eaqca-aaaad-q"
+  },
+  {
+    "name": "Cronic Wearables",
+    "principal_id": "tde7l-3qaaa-aaaah-qansa-cai",
+    "description": "Wearable NFTs, usable with the Cronics NFT collection. A Play-to-earn NFT game being developed by ToniqLabs for the Internet Computer. Cronics  incorporates breeding mechanics, wearable NFTs, a p2e minigame ecosystem, and more.",
+    "url": "https://cronic.toniqlabs.com/",
+    "logo_url": "https://tde7l-3qaaa-aaaah-qansa-cai.raw.ic0.app/?tokenid=gvmdu-vikor-uwiaa-aaaaa-b4adm-qaqca-aakby-a"
+  },
+  {
+    "name": "ICPunks",
+    "principal_id": "qcg3w-tyaaa-aaaah-qakea-cai",
+    "description": "10,000 randomly generated, unique collectible clowns with proof of ownership stored on the Internet Computer blockchain. Created as a reference to a meme comparing the Internet Computer token (ICP) with the Insane Clown Posse - an American hip hop duo founded in 1989.",
+    "url": "https://icpunks.com/",
+    "logo_url": "https://qcg3w-tyaaa-aaaah-qakea-cai.raw.ic0.app/Token/1"
+  },
+  {
+    "name": "ICPuzzle",
+    "principal_id": "owuqd-dyaaa-aaaah-qapxq-cai",
+    "description": "The ICPuzzle NFT is an artistic NFT that is meant to invoke thought around individuality, community, and the beauty of the human condition. Each puzzle piece represents human individuality within humanity, a self-contained piece of a larger cohesive whole.",
+    "url": "https://twitter.com/myartbar/",
+    "logo_url": "https://owuqd-dyaaa-aaaah-qapxq-cai.raw.ic0.app/?tokenid=2e7o5-wykor-uwiaa-aaaaa-b4ad5-4aqca-aaagc-q"
+  },
+  {
+    "name": "Starverse",
+    "principal_id": "nbg4r-saaaa-aaaah-qap7a-cai",
+    "description": "Starverse is an NFT collection of rare and unique Stars, a collaboration between DSCVR and ToniqLabs. The Starverse symbolizes the unlimited potential of the Internet Computer with it’s infinite size and unstoppable nature.",
+    "url": "https://starverse.toniqlabs.com/",
+    "logo_url": "https://nbg4r-saaaa-aaaah-qap7a-cai.raw.ic0.app/?tokenid=wdyem-pikor-uwiaa-aaaaa-b4ad7-yaqca-aacsh-a"
+  },
+  {
+    "name": "DRIP.LAND",
+    "principal_id": "mx7fv-viaaa-aaaah-aarsa-cai",
+    "description": "Home of the Drip universe, an open source Internet Computer NFT inspired by Loot Project.",
+    "url": "https://drip.land/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dripland.png"
+  },
+  {
+    "name": "ICelebrity",
+    "principal_id": "kss7i-hqaaa-aaaah-qbvmq-cai",
+    "description": "An NFT collection of 100 unique minted celebrities (Hollywood, Football Players, Singers and more).",
+    "url": "https://twitter.com/CeleberityI",
+    "logo_url": "https://kss7i-hqaaa-aaaah-qbvmq-cai.raw.ic0.app/?tokenid=bubur-lykor-uwiaa-aaaaa-b4anl-eaqca-aaaae-a"
+  },
+  {
+    "name": "NFT Studio Frontend",
+    "principal_id": "kqre2-2qaaa-aaaad-qamxa-cai",
+    "description": "NFT Studio allows users to Mint, Buy, Sell and Stake 3DWASM NFTs on the Internet Computer",
+    "url": "https://7xw5z-uqaaa-aaaad-qaqcq-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/nftstudio.png"
+  },
+  {
+    "name": "NFT Studio Backend",
+    "principal_id": "ryjl3-tyaaa-aaaaa-aaaba-cai",
+    "description": "NFT Studio allows users to Mint, Buy, Sell and Stake 3DWASM NFTs on the Internet Computer",
+    "url": "https://7xw5z-uqaaa-aaaad-qaqcq-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/nftstudio.png"
+  },
+  {
+    "name": "The Universo",
+    "principal_id": "k4qsa-4aaaa-aaaah-qbvnq-cai",
+    "description": "An NFT collection by a3capas. The Universo is where the chosen escape their mundane lives to astral travel and fuse their souls with the most powerful creatures.",
+    "url": "https://twitter.com/a3capas",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/dab/a3capas-logo.png"
+  },
+  {
+    "name": "Portal",
+    "principal_id": "ja7sy-daaaa-aaaai-qaguq-cai",
+    "description": "A Stream to Earn Platform Powered by the Internet Computer.",
+    "url": "https://ja7sy-daaaa-aaaai-qaguq-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/portal.jpg"
+  },
+  {
+    "name": "ICMojis",
+    "principal_id": "gevsk-tqaaa-aaaah-qaoca-cai",
+    "description": "A collection inspired in old school forum emotes, designed by the artist VisionsGFX, also part of the interactive strategy game ICMoji Origins.",
+    "url": "https://graci-aaaaa-aaaah-aaqjq-cai.raw.ic0.app/",
+    "logo_url": "https://gevsk-tqaaa-aaaah-qaoca-cai.raw.ic0.app/?tokenid=vqwej-jikor-uwiaa-aaaaa-b4adq-qaqca-aaaac-q"
+  },
+  {
+    "name": "Cronic Critters",
+    "principal_id": "e3izy-jiaaa-aaaah-qacbq-cai",
+    "description": "Cronics is a Play-to-earn NFT game being developed by ToniqLabs for the Internet Computer. Cronics  incorporates breeding mechanics, wearable NFTs and a p2e minigame ecosystem and more.",
+    "url": "https://cronic.toniqlabs.com/",
+    "logo_url": "https://e3izy-jiaaa-aaaah-qacbq-cai.raw.ic0.app/?tokenid=hancg-5ykor-uwiaa-aaaaa-b4aaq-maqca-aabuk-a"
+  },
+  {
+    "name": "Axon",
+    "principal_id": "dslea-eiaaa-aaaae-aaa3a-cai",
+    "description": "Multi-user multi-neuron management service on the Internet Computer.",
+    "url": "https://axon.ooo/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/axon-logo.svg"
+  },
+  {
+    "name": "IC Drip",
+    "principal_id": "d3ttm-qaaaa-aaaai-qam4a-cai",
+    "description": "IC Drip are randomly generated NFTs with meta-commerce shopping carts for outfits and personas stored on chain on the Internet Computer.",
+    "url": "https://dvr6e-lqaaa-aaaai-qam5a-cai.raw.ic0.app/",
+    "logo_url": "https://d3ttm-qaaaa-aaaai-qam4a-cai.raw.ic0.app/?tokenId=11"
+  },
+  {
+    "name": "Wrapped ICPunks",
+    "principal_id": "bxdf4-baaaa-aaaah-qaruq-cai",
+    "description": "IC Drip are randomly generated NFTs with meta-commerce shopping carts for outfits and personas stored on chain on the Internet Computer.",
+    "url": "https://icpunks.com/",
+    "logo_url": "https://qcg3w-tyaaa-aaaah-qakea-cai.raw.ic0.app/Token/1"
+  },
+  {
+    "name": "XTC",
+    "principal_id": "aanaa-xaaaa-aaaah-aaeiq-cai",
+    "description": "Cycles Token (XTC) is a token that allows users or developers to hold cycles with just a Principal ID, and send, trade, or develop canisters with them.",
+    "url": "https://dank.ooo/xtc/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/XTC.svg"
+  },
+  {
+    "name": "Wing",
+    "principal_id": "73xld-saaaa-aaaah-qbjya-cai",
+    "description": "An NFT photographic series created by the photographer @olisav",
+    "url": "https://twitter.com/olisav",
+    "logo_url": "https://73xld-saaaa-aaaah-qbjya-cai.raw.ic0.app/?tokenid=tpx6i-sykor-uwiaa-aaaaa-b4ako-aaqca-aaaaz-a"
+  },
+  {
+    "name": "Wrapped IC Drip",
+    "principal_id": "3db6u-aiaaa-aaaah-qbjbq-cai",
+    "description": "IC Drip are randomly generated NFTs with meta-commerce shopping carts for outfits and personas stored on chain on the Internet Computer.",
+    "url": "https://dvr6e-lqaaa-aaaai-qam5a-cai.raw.ic0.app/",
+    "logo_url": "https://d3ttm-qaaaa-aaaai-qam4a-cai.raw.ic0.app/?tokenId=1"
+  },
+  {
+    "name": "Coinflip Frontend",
+    "principal_id": "2ji5m-raaaa-aaaah-aanoa-cai",
+    "description": "A coin-flip application example built to showcase integrations with the Plug wallet extension for the Internet Computer!",
+    "url": "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/coin-flip.png"
+  },
+  {
+    "name": "Coinflip Backend",
+    "principal_id": "24pmb-qiaaa-aaaah-aannq-cai",
+    "description": "A coin-flip application example built to showcase integrations with the Plug wallet extension for the Internet Computer!",
+    "url": "https://2ji5m-raaaa-aaaah-aanoa-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/coin-flip.png"
+  },
+  {
+    "name": "The IC Gallery",
+    "principal_id": "zfjzz-4aaaa-aaaah-aasbq-cai",
+    "description": "A creative metaverse to gather all NFT enthusiasts and enjoy arts on the Internet Computer.",
+    "url": "https://zfjzz-4aaaa-aaaah-aasbq-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/gallery.jpg"
+  },
+  {
+    "name": "ICME",
+    "principal_id": "sygsn-caaaa-aaaaf-qaahq-cai",
+    "description": "The Internet Computer's first no-code website builder.",
+    "url": "https://icme.io/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/icme-3.png"
+  },
+  {
+    "name": "Cycles Bet",
+    "principal_id": "stz5m-sqaaa-aaaah-qaggq-cai",
+    "description": "Prvable secure and fair cycles bettign games.",
+    "url": "https://stz5m-sqaaa-aaaah-qaggq-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/cycles-bet.png"
+  },
+  {
+    "name": "Metascore",
+    "principal_id": "rl4ub-oqaaa-aaaah-qbi3a-cai",
+    "description": "Leaderboards and prizes for the DSCVR Season 2 Gaming Hackathon.",
+    "url": "https://t6ury-eiaaa-aaaaj-qabgq-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/metascore.svg"
+  },
+  {
+    "name": "ICDrive",
+    "principal_id": "rglue-kyaaa-aaaah-qakca-cai",
+    "description": "Secure and private decentralized storage app built on the Internet Computer.",
+    "url": "https://rglue-kyaaa-aaaah-qakca-cai.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/icdrive.jpg"
+  },
+  {
+    "name": "Internet Identity",
+    "principal_id": "rdmx6-jaaaa-aaaaa-aaadq-cai",
+    "description": "Internet Identity is a blockchain authentication system enables you to sign in securely and anonymously to dapps on the Internet Computer.",
+    "url": "https://identity.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png"
+  },
+  {
+    "name": "IC Canvas",
+    "principal_id": "rdbii-uiaaa-aaaab-qadva-cai",
+    "description": "IC Canvas is an interactive art project, running entirely on the Internet Computer. The experiment has completed - inspect the NFT's of the final state!",
+    "url": "https://rdbii-uiaaa-aaaab-qadva-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/canvas.svg"
+  },
+  {
+    "name": "NFT Village",
+    "principal_id": "nntkg-vqaaa-aaaad-qamfa-cai",
+    "description": "A friendly place for all of your favorite NFTs on the Internet Computer.",
+    "url": "https://nntkg-vqaaa-aaaad-qamfa-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/nftvillage.jpeg"
+  },
+  {
+    "name": "ICApps",
+    "principal_id": "n7ib3-4qaaa-aaaai-qagnq-cai",
+    "description": "Apps powered by the Internet Computer.",
+    "url": "https://n7ib3-4qaaa-aaaai-qagnq-cai.raw.ic0.app/#/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/icapps.svg"
+  },
+  {
+    "name": "Motoko Playground",
+    "principal_id": "m7sm4-2iaaa-aaaab-qabra-cai",
+    "description": "A playground for the Internet Computer's native Motoko language, brought to you by DFINITY",
+    "url": "https://m7sm4-2iaaa-aaaab-qabra-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/motoko-playground.png"
+  },
+  {
+    "name": "Texas Poker",
+    "principal_id": "lm5fh-ayaaa-aaaah-aafua-cai",
+    "description": "Texas Holdem game on the Internet Computer.",
+    "url": "https://lm5fh-ayaaa-aaaah-aafua-cai.ic0.app/",
+    "logo_url": "https://lm5fh-ayaaa-aaaah-aafua-cai.ic0.app/favicon.ico"
+  },
+  {
+    "name": "Modclub",
+    "principal_id": "ljyte-qiaaa-aaaah-qaiva-cai",
+    "description": "A decentralized moderation platform for the Internet Computer.",
+    "url": "https://ljyte-qiaaa-aaaah-qaiva-cai.raw.ic0.app/",
+    "logo_url": "https://ljyte-qiaaa-aaaah-qaiva-cai.raw.ic0.app/favicon.ico"
+  },
+  {
+    "name": "Metaverse",
+    "principal_id": "lc7ip-3iaaa-aaaah-aafva-cai",
+    "description": "Metaverse world game made during the first Internet Computer hackathon by Seb Thuillier",
+    "url": "https://lc7ip-3iaaa-aaaah-aafva-cai.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/metaverse.png"
+  },
+  {
+    "name": "Saga Tarot",
+    "principal_id": "l2jyf-nqaaa-aaaah-qadha-cai",
+    "description": "Daily Tarot card draws from Internet Computer blockchain.",
+    "url": "https://l2jyf-nqaaa-aaaah-qadha-cai.raw.ic0.app/",
+    "logo_url": "https://l2jyf-nqaaa-aaaah-qadha-cai.raw.ic0.app/favicon.svg"
+  },
+  {
+    "name": "Reversi",
+    "principal_id": "ivg37-qiaaa-aaaab-aaaga-cai",
+    "description": "Reversi game on the Internet Computer.",
+    "url": "https://ivg37-qiaaa-aaaab-aaaga-cai.ic0.app/#!/play",
+    "logo_url": "https://ivg37-qiaaa-aaaab-aaaga-cai.raw.ic0.app/logo.png"
+  },
+  {
+    "name": "Sudograph",
+    "principal_id": "i67uk-hiaaa-aaaae-qaaka-cai",
+    "description": "Sudograph is a GraphQL database for the Internet Computer (IC).",
+    "url": "https://i67uk-hiaaa-aaaae-qaaka-cai.raw.ic0.app/",
+    "logo_url": "https://i67uk-hiaaa-aaaae-qaaka-cai.raw.ic0.app/favicon.svg"
+  },
+  {
+    "name": "DSCVR",
+    "principal_id": "h5aet-waaaa-aaaab-qaamq-cai",
+    "description": "A decentralized social news aggregator built on the Internet Computer.",
+    "url": "https://dscvr.one/",
+    "logo_url": "https://h5aet-waaaa-aaaab-qaamq-cai.raw.ic0.app/favicon.ico"
+  },
+  {
+    "name": "ContentFly",
+    "principal_id": "grwwk-gaaaa-aaaah-aapma-cai",
+    "description": "Content Marketplace connecting high quality Creators with Brands, running on Dfinity Internet Computer",
+    "url": "https://grwwk-gaaaa-aaaah-aapma-cai.raw.ic0.app/",
+    "logo_url": "https://grwwk-gaaaa-aaaah-aapma-cai.raw.ic0.app/apple-touch-icon.png"
+  },
+  {
+    "name": "ICDrip Website",
+    "principal_id": "dvr6e-lqaaa-aaaai-qam5a-cai",
+    "description": "IC Drip are randomly generated meta-commerce shopping carts for outfits and personas stored on chain. Stats, images, and other functionality are intentionally omitted for others to interpret. Feel free to use IC Drip in any way you want.",
+    "url": "https://dvr6e-lqaaa-aaaai-qam5a-cai.raw.ic0.app/",
+    "logo_url": "https://dvr6e-lqaaa-aaaai-qam5a-cai.raw.ic0.app/favicon.ico"
+  },
+  {
+    "name": "Distrikt",
+    "principal_id": "c7fao-laaaa-aaaae-aaa4q-cai",
+    "description": "A decentralized, professional social media network that empowers users to own and control their identity and data.",
+    "url": "https://distrikt.app/",
+    "logo_url": "https://az5sd-cqaaa-aaaae-aaarq-cai.ic0.app/favicon.ico"
+  },
+  {
+    "name": "Openchat",
+    "principal_id": "7e6iv-biaaa-aaaaf-aaada-cai",
+    "description": "Chat. On the blockchain. In real time. Made possible by the Internet Computer.",
+    "url": "https://7e6iv-biaaa-aaaaf-aaada-cai.ic0.app/",
+    "logo_url": "https://7e6iv-biaaa-aaaaf-aaada-cai.ic0.app/apple-touch-icon.png"
+  },
+  {
+    "name": "ICPSwap",
+    "principal_id": "3pbcj-viaaa-aaaah-qaajq-cai",
+    "description": "Reinventing the Exchange as a Hub that Provides Full-stack Financial, Market, and DAO Services on the Internet Computer.",
+    "url": "https://www.icpswap.com/",
+    "logo_url": "https://3pbcj-viaaa-aaaah-qaajq-cai.raw.ic0.app/assets/favicon.ico"
+  },
+  {
+    "name": "Cubic",
+    "principal_id": "bxhqr-vyaaa-aaaah-aaqza-cai",
+    "description": "An experimental generative art project based on on-chain data on the Internet Computer.",
+    "url": "https://cubic.place",
+    "logo_url": "https://cubic.place/img/cubic.svg"
+  },
+  {
+    "name": "WTC",
+    "principal_id": "5ymop-yyaaa-aaaah-qaa4q-cai",
+    "description": "WTC utilize the Extendable Token Standard for DFINITY's Internet Computer to wrap native computation \"cycles\".",
+    "url": "https://www.wtctoken.com/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/WTC.png"
+  },
+  {
+    "name": "NNS Root",
+    "principal_id": "r7inp-6aaaa-aaaaa-aaabq-cai",
+    "description": "This is the handler for NNS canister upgrade proposals.",
+    "url": "https://github.com/dfinity/ic/tree/master/rs/nns/handlers/root",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png"
+  },
+  {
+    "name": "Randomness Oracle",
+    "principal_id": "ptodj-lqaaa-aaaah-qaeaq-cai",
+    "description": "Randomness Oracle supplies the same system secure randomness to the caller and at the same time also keeps a record of them.",
+    "url": "https://ptodj-lqaaa-aaaah-qaeaq-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png"
+  },
+  {
+    "name": "IC Management",
+    "principal_id": "aaaaa-aa",
+    "description": "The Internet Computer provides functionality such as canister and user management. This functionality is exposed to external users and canisters via the IC management canister.",
+    "url": "",
+    "logo_url": ""
+  },
+  {
+    "name": "",
+    "principal_id": "https://sdk.dfinity.org/docs/interface-spec/index.html#ic-management-canister",
+    "description": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png",
+    "url": "",
+    "logo_url": ""
+  },
+  {
+    "name": "NNS Cycles Minting",
+    "principal_id": "rkp4c-7iaaa-aaaaa-aaaca-cai",
+    "description": "The cycle’s minting canister burns tokens, mints new cycles, and sends these freshly minted cycles to the user’s canister.",
+    "url": "https://sdk.dfinity.org/docs/token-holders/nns-app-quickstart.html",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png"
+  },
+  {
+    "name": "NNS Ledger",
+    "principal_id": "ryjl3-tyaaa-aaaaa-aaaba-cai",
+    "description": "The ledger canister implements a smart contract that holds accounts and balances and keeps a history of the transactions that affect accounts and balances.",
+    "url": "https://medium.com/dfinity/the-network-nervous-system-governing-the-internet-computer-1d176605d66a",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png"
+  },
+  {
+    "name": "NNS Lifeline",
+    "principal_id": "rno2w-sqaaa-aaaaa-aaacq-cai",
+    "description": "Lifeline allows its upgrade and thus the fixing of all NNS canisters should some common (e.g. library or codegen) flaw be present in any of the NNS canisters.",
+    "url": "https://dfinity.org/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png"
+  },
+  {
+    "name": "NNS Governance",
+    "principal_id": "rrkah-fqaaa-aaaaa-aaaaq-cai",
+    "description": "The NNS controls all aspects of the Internet Computer network configuration and is responsible for performing many network management operations.",
+    "url": "https://nns.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png"
+  },
+  {
+    "name": "NNS Governance UI",
+    "principal_id": "qoctq-giaaa-aaaaa-aaaea-cai",
+    "description": "Interface for the NNS Governance system for the Internet Computer.",
+    "url": "https://nns.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png"
+  },
+  {
+    "name": "Fleek.ooo (Staging)",
+    "principal_id": "snpdi-6yaaa-aaaah-aauaq-cai",
+    "description": "Fleek.ooo is a development platform for DFINITY's Internet Computer. Build sites, apps, or infrastructure.",
+    "url": "https://stg.fleek.ooo/",
+    "logo_url": "https://fleek.ooo/images/webclip.png"
+  },
+  {
+    "name": "Principia Mathematica",
+    "principal_id": "lhq4n-3yaaa-aaaai-qaniq-cai",
+    "description": "An Ode to Mathematics, a silent tribute to the greatest minds of all time.",
+    "url": "http://nftstudio.biz/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/principia.png"
+  },
+  {
+    "name": "Candy Library",
+    "principal_id": "hdxhu-qqaaa-aaaai-aasnq-cai",
+    "description": "Candy Library NFTs - distribution licenses for a motoko software library, fund software!",
+    "url": "https://hwqwz-ryaaa-aaaai-aasoa-cai.raw.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/dab/candy-lib.png"
+  },
+  {
+    "name": "Cake",
+    "principal_id": "wxi2q-oiaaa-aaaaj-qab2q-cai",
+    "description": "Slices of cake celebrating the birthdays of IC builders. Proceeds fund open source development.",
+    "url": "https://cake.aviate-labs.com/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/logos/cake-logo.png"
+  },
+  {
+    "name": "ICPuppies",
+    "principal_id": "njgly-uaaaa-aaaah-qb6pa-cai",
+    "description": "10,000 unique randomly generated 8-bit puppy NFTs on the Internet Computer.",
+    "url": "https://icpuppies.io/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/logos/ICPuppies.png"
+  },
+  {
+    "name": "Internet Astronauts",
+    "principal_id": "sr4qi-vaaaa-aaaah-qcaaq-cai",
+    "description": "Internet Astronauts is a collection of 10,000 unique digital astronaut NFT collectibles only found on the Internet Computer.",
+    "url": "https://interastrosc.com/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/logos/internetastro.jpeg"
+  },
+  {
+    "name": "ICMojis Items",
+    "principal_id": "cihkf-qyaaa-aaaah-qb7jq-cai",
+    "description": "Collection of items that will be integrated into the ICmojis Origins game in the future.",
+    "url": "https://twitter.com/visions_gfx",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/logos/items.png"
+  },
+  {
+    "name": "Wrapped ICPBunny",
+    "principal_id": "q6hjz-kyaaa-aaaah-qcama-cai",
+    "description": "Wrapped version of ICPBunny, a bunny-themed NFT collection that uses utility tokens to enable yieldable and breedable NFTs on the Internet Computer.",
+    "url": "https://twitter.com/ICPBunny",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/ICPBunny.png"
+  },
+  {
+    "name": "ICTuts",
+    "principal_id": "qqfer-riaaa-aaaah-qcana-cai",
+    "description": "10,000 randomly generated TuTs, a pharaoh-themed NFT collections on the Internet Computer.",
+    "url": "https://ictuts.com/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/logos/tuts.jpg"
+  },
+  {
+    "name": "Proof of humanity IC",
+    "principal_id": "r7nfb-aaaaa-aaaaj-qabla-cai",
+    "description": "A registry of only humans. One human one vote!",
+    "url": "https://r7nfb-aaaaa-aaaaj-qabla-cai.raw.ic0.app/manage",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/logos/pohic.jpg"
+  },
+  {
+    "name": "IC Chatbot",
+    "principal_id": "j2nsf-iqaaa-aaaai-qanha-cai",
+    "description": "A support chatbot for Internet Computer.",
+    "url": "https://j2nsf-iqaaa-aaaai-qanha-cai.ic0.app/",
+    "logo_url": "https://storageapi.fleek.co/fleek-team-bucket/canister-logos/dfinity.png"
+  }
+]
