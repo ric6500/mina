@@ -31,6 +31,20 @@ function AppLink(app) {
     );
 }
 
+function AppStructure(app) {
+  const handleClick = () => {
+    window.open(app.appLink);
+  };
+  return <button style={{
+          maxWidth: "300px",
+          maxHeight: "100px",
+          minWidth: "200px",
+          minHeight: "60px"
+        }} onClick={handleClick}>{app.appName}
+
+        </button>
+}
+
 class App extends Component {
 
   state = {
@@ -106,6 +120,10 @@ render() {
           {apps_list.map((app) => <AppLink name={app.name} url={app.url} key={app.name} logo_url={app.logo_url}/>)}
         </ul>
         <hr/>
+        <ul>
+          {this.state.apps.map((app) => <AppStructure appName={app.appName} appLink={app.appLink} key={app.id}/>)}
+        </ul>
+        <hr/>
         <form onSubmit={this.onSubmit}>
           <h4>Want to add an app to mina ?</h4>
           <div>
@@ -143,7 +161,7 @@ render() {
         <button onClick={this.onClick}>Start now!</button>
         <h1>{this.state.message}</h1>
         <hr />
-        <h4>Decentralized video and images</h4>
+        <h4>Video and images on decentralised storage</h4>
         <video controls width="40%">
         <source src={src} type="video/mp4" />
           Sorry, your browser doesn't support embedded videos.
