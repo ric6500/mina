@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import web3 from './web3';
-import contract from './my-first-dfinity-app-contract';
+import contract from './mina-main-contract';
+import { useWeb3React } from "@web3-react/core"
+import jazzicon from "@metamask/jazzicon"
 
 const src =
 "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/panasonic-hokkaido-and-tokyo-uhd-(www.demolandia.net).mp4";
@@ -12,16 +14,6 @@ function AppLink(app) {
     window.open(app.appLink);
   };
   return <button onClick={handleClick}>{app.appName}</button>
-//   return (<li
-//     key={app.id}
-//     className="App-link"
-//     href={app.appLink}
-//     target="_blank"
-//     onClick={event => this.click(event)}
-//     rel="noopener noreferrer">
-//     {app.appName}
-//   </li>
-// );
 }
 
 class App extends Component {
@@ -29,27 +21,28 @@ class App extends Component {
   state = {
     message: '',
     apps: [],
+    accounts: [],
     value: '',
     appName: '',
     appLink: '',
-    id: ""
+    id: "",
   };
 
   async componentDidMount() {
     const apps = await contract.methods.getApps().call();
-    this.setState({ apps });
+    const accounts = await web3.eth.getAccounts();
+
+    this.setState({ apps: apps, accounts: accounts});
   };
 
   onSubmit = async (event) => {
     event.preventDefault();
 
-    const accounts = await web3.eth.getAccounts();
-
 
     this.setState({ message: 'Waiting on trasaction success...' })
 
     await contract.methods.enterApp(this.state.appName, this.state.appLink, this.state.id).send({
-      from: accounts[0],
+      from: this.state.accounts[0],
       value: web3.utils.toWei(this.state.value, 'ether'),
     });
 
@@ -85,6 +78,7 @@ render() {
   return (
     <div className="App">
       <header className="App-header">
+        <p>{this.state.accounts[0]}</p>
         <hr/>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
