@@ -54,6 +54,7 @@ class App extends Component {
     });
 
     this.setState({ message: 'App successfully submitted to the OS!' });
+    this.state.value = 0;
   }
 
   onClick = async (event) => {
@@ -133,10 +134,12 @@ render() {
         <button onClick={this.onClick}>Start now!</button>
         <h1>{this.state.message}</h1>
         <hr />
-        <video controls width="100%">
-      <source src={src} type="video/mp4" />
-      Sorry, your browser doesn't support embedded videos.
-    </video>
+        <h4>Decentralized video and images</h4>
+        <video controls width="40%">
+        <source src={src} type="video/mp4" />
+          Sorry, your browser doesn't support embedded videos.
+        </video>
+        <img src = "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/3b9a1ec7b868b4b107bce28f783fb566.gif" width="40%"></img>
       </header>
     </div>
 
