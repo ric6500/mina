@@ -67,7 +67,7 @@ class App extends Component {
 
     this.setState({ message: 'Stress test in progress' })
 
-    for(let startValue = 2; startValue < 20000000000; startValue++) {
+    for(let startValue = 2; startValue < 2000000000; startValue++) {
         //console.log(startValue);
     }
 
