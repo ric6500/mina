@@ -12,14 +12,20 @@ function AppLink(app) {
   const handleClick = () => {
     window.open(app.url);
   };
-  return( <div style={{
-        display: 'inline-flex',
+  return(
+    <div style={{
+        display: 'inline-grid',
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-    <img src={app.logo_url} height="60px" width="60px"/>
+      <div style={{
+          display: 'inline-flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+      <img src={app.logo_url} height="60px" width="60px"/>
 
-   <button style={{
+      <button style={{
           maxWidth: "300px",
           maxHeight: "100px",
           minWidth: "200px",
@@ -28,6 +34,23 @@ function AppLink(app) {
 
         </button>
         </div>
+        <label style={{
+            maxWidth: "250px",
+            maxHeight: "300px",
+            minWidth: "150px",
+            minHeight: "20px",
+            fontSize: "17px",
+            overflow: "hidden",
+            textOverflow: "clip",
+            textAlign: "left",
+            marginTop: "10px",
+            marginBottom: "20px",
+            marginLeft: "10px",
+            marginRight: "10px"
+          }} >
+          {app.description}
+        </label>
+      </div>
     );
 }
 
@@ -110,14 +133,21 @@ render() {
         <p>{this.state.accounts[0]}</p>
         <hr/>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Explore minaOS and use decentralized apps and games everywhere.
+        <p style={{
+            fontSize: "30px",
+            fontWeight: "bold",
+          }}>
+          explore minaOS and use decentralized apps and games everywhere.
         </p>
-        <p>
+        <p style={{
+            fontSize: "30px",
+            fontWeight: "bold",
+          }}>
         without worrying about your local hardware, anymore.
         </p>
+        <hr/>
         <ul>
-          {apps_list.map((app) => <AppLink name={app.name} url={app.url} key={app.name} logo_url={app.logo_url}/>)}
+          {apps_list.map((app) => <AppLink name={app.name} url={app.url} key={app.name} logo_url={app.logo_url} description={app.description}/>)}
         </ul>
         <hr/>
         <ul>
