@@ -99,7 +99,7 @@ class App extends Component {
 
     console.log(finalTiming);
 
-    this.setState({ message: 'Stress test ended!'});
+    this.setState({ message: 'Stress test ended!!!'});
   };
 
 
