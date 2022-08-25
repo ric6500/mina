@@ -4,11 +4,9 @@ import './App.css';
 import web3 from './web3';
 import contract from './mina-main-contract';
 import apps_list from './apps_list.json';
-import { FileUpload } from 'react-ipfs-uploader'
 
 const src =
 "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/panasonic-hokkaido-and-tokyo-uhd-(www.demolandia.net).mp4";
-
 
 function AppLink(app) {
   const handleClick = () => {
@@ -69,24 +67,6 @@ function AppStructure(app) {
 
         </button>
 }
-
-function Upload() {
-  const [fileUrl, setFileUrl] = useState('')
-
-    return (
-        <div>
-            <FileUpload setUrl={setFileUrl} />
-            FileUrl : <a
-                href={fileUrl}
-                target='_blank'
-                rel='noopener noreferrer'
-            >
-                {fileUrl}
-            </a>
-        </div>
-    )
-  }
-
 
 
 class App extends Component {
@@ -214,7 +194,6 @@ render() {
         <h1>{this.state.message}</h1>
         <hr />
         <h4>Video and images on decentralised storage</h4>
-        <Upload/>
         <hr />
         <video controls width="40%">
         <source src={src} type="video/mp4" />
