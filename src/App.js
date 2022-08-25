@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import web3 from './web3';
 import contract from './mina-main-contract';
-import apps_list from './apps_list.json'
+import apps_list from './apps_list.json';
+import { FileUpload } from 'react-ipfs-uploader'
 
 const src =
 "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/panasonic-hokkaido-and-tokyo-uhd-(www.demolandia.net).mp4";
+
 
 function AppLink(app) {
   const handleClick = () => {
@@ -67,6 +69,25 @@ function AppStructure(app) {
 
         </button>
 }
+
+function Upload() {
+  const [fileUrl, setFileUrl] = useState('')
+
+    return (
+        <div>
+            <FileUpload setUrl={setFileUrl} />
+            FileUrl : <a
+                href={fileUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+            >
+                {fileUrl}
+            </a>
+        </div>
+    )
+  }
+
+
 
 class App extends Component {
 
@@ -130,6 +151,7 @@ render() {
   return (
     <div className="App">
       <header className="App-header">
+        <hr/>
         <p>{this.state.accounts[0]}</p>
         <hr/>
         <img src={logo} className="App-logo" alt="logo" />
@@ -192,6 +214,8 @@ render() {
         <h1>{this.state.message}</h1>
         <hr />
         <h4>Video and images on decentralised storage</h4>
+        <Upload/>
+        <hr />
         <video controls width="40%">
         <source src={src} type="video/mp4" />
           Sorry, your browser doesn't support embedded videos.
