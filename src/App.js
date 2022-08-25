@@ -1,7 +1,8 @@
 import React, { Component, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import contract from './mina-main-contract';
+// import web3 from './web3';
+// import contract from './mina-main-contract';
 import apps_list from './apps_list.json';
 
 const src =
@@ -81,25 +82,25 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    const accounts = await web3.eth.getAccounts();
-    const apps = await contract.methods.getApps().call();
-
-    this.setState({ apps: apps, accounts: accounts});
+    // const accounts = await web3.eth.getAccounts();
+    // const apps = await contract.methods.getApps().call();
+    //
+    // this.setState({ apps: apps, accounts: accounts});
   };
 
   onSubmit = async (event) => {
-    event.preventDefault();
-
-
-    this.setState({ message: 'Waiting on trasaction success...' })
-
-    await contract.methods.enterApp(this.state.appName, this.state.appLink, this.state.id).send({
-      from: this.state.accounts[0],
-      value: web3.utils.toWei(this.state.value, 'ether'),
-    });
-
-    this.setState({ message: 'App successfully submitted to the OS!' });
-    this.state.value = 0;
+    // event.preventDefault();
+    //
+    //
+    // this.setState({ message: 'Waiting on trasaction success...' })
+    //
+    // await contract.methods.enterApp(this.state.appName, this.state.appLink, this.state.id).send({
+    //   from: this.state.accounts[0],
+    //   value: web3.utils.toWei(this.state.value, 'ether'),
+    // });
+    //
+    // this.setState({ message: 'App successfully submitted to the OS!' });
+    // this.state.value = 0;
   }
 
   onClick = async (event) => {
