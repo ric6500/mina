@@ -1,7 +1,6 @@
 import React, { Component, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import web3 from './web3';
 import contract from './mina-main-contract';
 import apps_list from './apps_list.json';
 
