@@ -26,10 +26,9 @@ function AppLink(app) {
       <img src={app.logo_url} height="60px" width="60px"/>
 
       <button style={{
-          maxWidth: "300px",
-          maxHeight: "100px",
           minWidth: "200px",
-          minHeight: "60px"
+          maxWidth: "300px",
+          height: "60px",
         }} onClick={handleClick}>{app.name}
 
         </button>
