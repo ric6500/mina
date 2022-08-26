@@ -1,4 +1,10 @@
-import web3 from './web3';
+const Web3 = require("web3");
+
+const web3 = new Web3(
+new Web3.providers.HttpProvider(
+		"https://rinkeby.infura.io/v3/a5e20b2382fd40fa8a43f6c7d250008c"
+	)
+);
 
 const address = '0x7A6C29615eCF83B892FCcF3905799d2d9B738f91';
 
