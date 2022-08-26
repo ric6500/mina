@@ -1,20 +1,12 @@
 import React, { Component, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-// import web3 from './web3';
+import web3 from './web3';
 import contract from './mina-main-contract';
 import apps_list from './apps_list.json';
 
 const src =
 "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/panasonic-hokkaido-and-tokyo-uhd-(www.demolandia.net).mp4";
-
-const Web3 = require("web3");
-
-const web3 = new Web3(
-new Web3.providers.HttpProvider(
-    "https://rinkeby.infura.io/v3/a5e20b2382fd40fa8a43f6c7d250008c"
-  )
-);
 
 function AppLink(app) {
   const handleClick = () => {
@@ -81,7 +73,7 @@ class App extends Component {
   state = {
     message: "",
     apps: [],
-    account: "",
+    accounts: [],
     value: "",
     appName: "",
     appLink: "",
@@ -89,14 +81,10 @@ class App extends Component {
   };
 
   async componentDidMount() {
+    const accounts = await web3.eth.getAccounts();
     const apps = await contract.methods.getApps().call();
-    // Creating a signing account from a private key
-    const signer = web3.eth.accounts.privateKeyToAccount(
-      "f40e45631216e41e764dc642abc38eabfc4bdd7674234f8d5354b7c11a48b5e2"
-    );
-    web3.eth.accounts.wallet.add(signer);
 
-    this.setState({ apps: apps, account: signer.address});
+    this.setState({ apps: apps, accounts: accounts});
   };
 
   onSubmit = async (event) => {
@@ -105,39 +93,10 @@ class App extends Component {
 
     this.setState({ message: 'Waiting on trasaction success...' })
 
-    const signer = web3.eth.accounts.privateKeyToAccount(
-      "f40e45631216e41e764dc642abc38eabfc4bdd7674234f8d5354b7c11a48b5e2"
-    );
-
-    web3.eth.accounts.wallet.add(signer);
-
-    const tx = {
-      from: signer.address,
-      to: "0x7A6C29615eCF83B892FCcF3905799d2d9B738f91",
+    await contract.methods.enterApp(this.state.appName, this.state.appLink, this.state.id).send({
+      from: this.state.accounts[0],
       value: web3.utils.toWei(this.state.value, 'ether'),
-      gas: "100000",
-      nonce: web3.eth.getTransactionCount(signer.address),
-      chain: "rinkeby",
-      hardfork: "london",
-    };
-
-
-    // const receipt = await tx.send({
-    //   from: this.state.account,
-    //   gas: await tx.estimateGas(),
-    // })
-    // .once("transactionHash", (txhash) => {
-    //   console.log(`Mining transaction ...`);
-    //   console.log(`https://rinkeby.etherscan.io/tx/${txhash}`);
-    // });
-
-    console.log(web3.eth.accounts);
-
-    const signedTx = await web3.eth.accounts.signTransaction(tx, signer.privateKey)
-    console.log("Raw transaction data: " + signedTx.rawTransaction)
-
-
-    await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+    });
 
     this.setState({ message: 'App successfully submitted to the OS!' });
     this.state.value = 0;
@@ -172,7 +131,7 @@ render() {
     <div className="App">
       <header className="App-header">
         <hr/>
-        <p>{this.state.account}</p>
+        <p>{this.state.accounts[0]}</p>
         <hr/>
         <img src={logo} className="App-logo" alt="logo" />
         <p style={{
