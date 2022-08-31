@@ -74,7 +74,7 @@ function AppStructure(app) {
         </button>
 }
 
-function FileStructure(url) {
+function FileStructure(url, account) {
   const handleClick = () => {
     window.open(url);
   };
@@ -83,7 +83,7 @@ function FileStructure(url) {
           maxHeight: "100px",
           minHeight: "60px",
           color: "blue"
-        }} onClick={handleClick}>{url.replace("https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/mina/","")}
+        }} onClick={handleClick}>{url.replace(`https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/${account}/`,"")}
 
         </button>
 }
@@ -116,7 +116,7 @@ class App extends Component {
     const files = await fleek.listFiles({
         apiKey: apiKey,
         apiSecret: apiSecret,
-        prefix: 'mina',
+        prefix: accounts[0],
         getOptions: [
           'bucket',
           'key',
@@ -184,7 +184,7 @@ class App extends Component {
       const input = {
           apiKey: apiKey,
           apiSecret: apiSecret,
-          key: `mina/${this.state.file['name']}`,
+          key: `${this.state.accounts[0]}/${this.state.file['name']}`,
           data: this.state.file,
       };
 
@@ -195,7 +195,7 @@ class App extends Component {
           fleek.listFiles({
               apiKey: apiKey,
               apiSecret: apiSecret,
-              prefix: 'mina',
+              prefix: this.state.accounts[0],
               getOptions: [
                 'bucket',
                 'key',
@@ -233,7 +233,7 @@ imageOrVideo(file) {
       Sorry, your browser doesn't support embedded videos.
     </video>
   } else if (this.isFile(file['publicUrl'])) {
-    return FileStructure(file['publicUrl'])
+    return FileStructure(file['publicUrl'], this.state.accounts[0])
   }
 
   return <img src={`${file['publicUrl']}`} width="40%"></img>
