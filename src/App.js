@@ -4,9 +4,16 @@ import './App.css';
 import web3 from './web3';
 import contract from './mina-main-contract';
 import apps_list from './apps_list.json';
+import uploadFileContract from './UploadFile'
+import ipfs from './ipfs';
+import fleek from '@fleekhq/fleek-storage-js';
 
 const src =
 "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/panasonic-hokkaido-and-tokyo-uhd-(www.demolandia.net).mp4";
+
+const apiKey = "GU9hDwtm3QcMl+JQBgLfpA==";
+const apiSecret = "WRSsCMrzf8SK3MVqEP1zZ2Ok3mg/IiI02ZeBcXn75uU=";
+
 
 function AppLink(app) {
   const handleClick = () => {
@@ -67,24 +74,60 @@ function AppStructure(app) {
         </button>
 }
 
+function FileStructure(url) {
+  const handleClick = () => {
+    window.open(url);
+  };
+  return <button style={{
+          width: "40%",
+          maxHeight: "100px",
+          minHeight: "60px",
+          color: "blue"
+        }} onClick={handleClick}>{url.replace("https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/mina/","")}
+
+        </button>
+}
+
 
 class App extends Component {
 
-  state = {
-    message: "",
-    apps: [],
-    accounts: [],
-    value: "",
-    appName: "",
-    appLink: "",
-    id: "",
+  constructor(props) {
+    super(props)
+    this.state = {
+      message: "",
+      apps: [],
+      accounts: [],
+      value: "",
+      appName: "",
+      appLink: "",
+      id: "",
+      files: [],
+      buffers: [],
+      file: ""
+    };
+    this.captureFile = this.captureFile.bind(this);
+    this.onSubmitFile = this.onSubmitFile.bind(this);
   };
 
   async componentDidMount() {
     const accounts = await web3.eth.getAccounts();
     const apps = await contract.methods.getApps().call();
 
-    this.setState({ apps: apps, accounts: accounts});
+    const files = await fleek.listFiles({
+        apiKey: apiKey,
+        apiSecret: apiSecret,
+        prefix: 'mina',
+        getOptions: [
+          'bucket',
+          'key',
+          'hash',
+          'publicUrl'
+        ],
+      });
+
+    console.log(files);
+
+    this.setState({ apps: apps, accounts: accounts, files: files});
   };
 
   onSubmit = async (event) => {
@@ -125,14 +168,83 @@ class App extends Component {
     this.setState({ message: 'Stress test ended!!!'});
   };
 
+  captureFile(event) {
+      event.preventDefault()
+      const files = event.target.files
+
+      console.log(files[0])
+
+      this.setState({ file: files[0]})
+
+    };
+
+    onSubmitFile(event) {
+      event.preventDefault()
+
+      const input = {
+          apiKey: apiKey,
+          apiSecret: apiSecret,
+          key: `mina/${this.state.file['name']}`,
+          data: this.state.file,
+      };
+
+      fleek.upload(input).then((r) => {
+
+          console.log(r);
+
+          fleek.listFiles({
+              apiKey: apiKey,
+              apiSecret: apiSecret,
+              prefix: 'mina',
+              getOptions: [
+                'bucket',
+                'key',
+                'hash',
+                'publicUrl'
+              ],
+            }).then((r) => {
+              this.setState({ files: r})
+            });
+
+      });
+    };
+
+getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+isImage(url) {
+  return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
+}
+
+isVideo(url) {
+  return /^https?:\/\/.+\.(avi|mov|mp4|flv)$/.test(url);
+}
+
+isFile(url) {
+  return /^https?:\/\/.+\.(pdf|doc|html|txt)$/.test(url);
+}
+
+imageOrVideo(file) {
+
+  if (this.isVideo(file['publicUrl'])) {
+    return <video controls width="40%">
+    <source src={file['publicUrl']} type="video/mp4" />
+      Sorry, your browser doesn't support embedded videos.
+    </video>
+  } else if (this.isFile(file['publicUrl'])) {
+    return FileStructure(file['publicUrl'])
+  }
+
+  return <img src={`${file['publicUrl']}`} width="40%"></img>
+}
+
 
 render() {
   return (
     <div className="App">
       <header className="App-header">
-        <hr/>
         <p>{this.state.accounts[0]}</p>
-        <hr/>
         <img src={logo} className="App-logo" alt="logo" />
         <p style={{
             fontSize: "30px",
@@ -146,15 +258,27 @@ render() {
           }}>
         without worrying about your local hardware, anymore.
         </p>
-        <hr/>
+        <hr style={{
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+        height: '30px'
+      }}/>
         <ul>
-          {apps_list.map((app) => <AppLink name={app.name} url={app.url} key={app.name} logo_url={app.logo_url} description={app.description}/>)}
+          {apps_list.map((app) => <AppLink name={app.name} url={app.url} logo_url={app.logo_url} description={app.description} key={Math.random()}/>)}
         </ul>
-        <hr/>
+        <hr style={{
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+        height: '30px'
+      }}/>
         <ul>
-          {this.state.apps.map((app) => <AppStructure appName={app.appName} appLink={app.appLink} key={app.id}/>)}
+          {this.state.apps.map((app) => <AppStructure appName={app.appName} appLink={app.appLink} key={Math.random()}/>)}
         </ul>
-        <hr/>
+        <hr style={{
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+        height: '30px'
+      }}/>
         <form onSubmit={this.onSubmit}>
           <h4>Want to add an app to mina ?</h4>
           <div>
@@ -187,19 +311,34 @@ render() {
           </div>
           <button>Enter</button>
         </form>
-        <hr />
+        <hr style={{
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+        height: '30px'
+      }}/>
         <h4>Ready for a stress test?</h4>
         <button onClick={this.onClick}>Start now!</button>
         <h1>{this.state.message}</h1>
-        <hr />
-        <h4>Video and images on decentralised storage</h4>
-        <hr />
-        <video controls width="40%">
-        <source src={src} type="video/mp4" />
-          Sorry, your browser doesn't support embedded videos.
-        </video>
-        <img src = "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/3b9a1ec7b868b4b107bce28f783fb566.gif" width="40%"></img>
-      </header>
+        <hr style={{
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+        height: '30px'
+      }}/>
+        <h3>Upload Files, Images and Videos on the decentralised storage </h3>
+        <form onSubmit={this.onSubmitFile}>
+          <input type='file' multiple="multiple" onChange={this.captureFile}/>
+          <input type='submit' />
+        </form>
+        <hr style={{
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+        height: '30px'
+      }}/>
+        <ul style={{listStyle: "none", padding: 0}}>
+          {this.state.files.map((file) => <li key={Math.random()}> {this.imageOrVideo(file)}</li>) }
+        </ul>
+
+        </header>
     </div>
 
   );
