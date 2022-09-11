@@ -60,19 +60,19 @@ function AppLink(app) {
     );
 }
 
-function AppStructure(app) {
-  const handleClick = () => {
-    window.open(app.appLink);
-  };
-  return <button style={{
-          maxWidth: "300px",
-          maxHeight: "100px",
-          minWidth: "200px",
-          minHeight: "60px"
-        }} onClick={handleClick}>{app.appName}
-
-        </button>
-}
+// function AppStructure(app) {
+//   const handleClick = () => {
+//     window.open(app.appLink);
+//   };
+//   return <button style={{
+//           maxWidth: "300px",
+//           maxHeight: "100px",
+//           minWidth: "200px",
+//           minHeight: "60px"
+//         }} onClick={handleClick}>{app.appName}
+//
+//         </button>
+// }
 
 function FileStructure(url, account) {
   const handleClick = () => {
@@ -98,12 +98,15 @@ class App extends Component {
       apps: [],
       accounts: [],
       value: "",
-      appName: "",
-      appLink: "",
-      id: "",
+      name: "",
+      principal_id: "",
+      description: "",
+      url: "",
+      logo_url: "",
       files: [],
       buffers: [],
-      file: ""
+      file: "",
+      manager: ""
     };
     this.captureFile = this.captureFile.bind(this);
     this.onSubmitFile = this.onSubmitFile.bind(this);
@@ -111,7 +114,11 @@ class App extends Component {
 
   async componentDidMount() {
     const accounts = await web3.eth.getAccounts();
-    const apps = await contract.methods.getApps().call();
+    const apps = await contract.methods.getPublicApps().call();
+    const requestedApps = await contract.methods.getRequestedApps().call();
+    const manager = await contract.methods.manager().call();
+
+    console.log(manager)
 
     const files = await fleek.listFiles({
         apiKey: apiKey,
@@ -127,7 +134,7 @@ class App extends Component {
 
     console.log(files);
 
-    this.setState({ apps: apps, accounts: accounts, files: files});
+    this.setState({ apps: apps, accounts: accounts, files: files, requestedApps: requestedApps, manager: manager});
   };
 
   onSubmit = async (event) => {
@@ -136,36 +143,42 @@ class App extends Component {
 
     this.setState({ message: 'Waiting on trasaction success...' })
 
-    await contract.methods.enterApp(this.state.appName, this.state.appLink, this.state.id).send({
+
+    await contract.methods.enterApp(this.state.name, this.state.principal_id, this.state.description, this.state.url, this.state.logo_url).send({
       from: this.state.accounts[0],
-      value: web3.utils.toWei(this.state.value, 'ether'),
     });
 
-    this.setState({ message: 'App successfully submitted to the OS!' });
+    const requestedApps = await contract.methods.getRequestedApps().call();
+
+    this.setState({ message: 'App successfully submitted to the OS!', requestedApps: requestedApps});
     this.state.value = 0;
   }
 
   onClick = async (event) => {
     event.preventDefault();
 
-    console.log(Date.now());
+    await contract.methods.enterArrayOfApp(apps_list).send({
+      from: this.state.accounts[0],
+    });
 
-    let initialStart = Date.now();
-
-
-    this.setState({ message: 'Stress test in progress' })
-
-    for(let startValue = 2; startValue < 2000000000; startValue++) {
-        //console.log(startValue);
-    }
-
-    console.log(Date.now());
-
-    let finalTiming = Date.now() - initialStart;
-
-    console.log(finalTiming);
-
-    this.setState({ message: 'Stress test ended!!!'});
+    // console.log(Date.now());
+    //
+    // let initialStart = Date.now();
+    //
+    //
+    // this.setState({ message: 'Stress test in progress' })
+    //
+    // for(let startValue = 2; startValue < 2000000000; startValue++) {
+    //     //console.log(startValue);
+    // }
+    //
+    // console.log(Date.now());
+    //
+    // let finalTiming = Date.now() - initialStart;
+    //
+    // console.log(finalTiming);
+    //
+    // this.setState({ message: 'Stress test ended!!!'});
   };
 
   captureFile(event) {
@@ -178,65 +191,182 @@ class App extends Component {
 
     };
 
-    onSubmitFile(event) {
-      event.preventDefault()
-
+  onSubmitFile(event) {
+    event.preventDefault()
       const input = {
-          apiKey: apiKey,
-          apiSecret: apiSecret,
-          key: `${this.state.accounts[0]}/${this.state.file['name']}`,
-          data: this.state.file,
-      };
-
-      fleek.upload(input).then((r) => {
-
-          console.log(r);
-
-          fleek.listFiles({
-              apiKey: apiKey,
-              apiSecret: apiSecret,
-              prefix: this.state.accounts[0],
-              getOptions: [
-                'bucket',
-                'key',
-                'hash',
-                'publicUrl'
-              ],
-            }).then((r) => {
-              this.setState({ files: r})
-            });
-
-      });
+        apiKey: apiKey,
+        apiSecret: apiSecret,
+        key: `${this.state.accounts[0]}/${this.state.file['name']}`,
+        data: this.state.file,
     };
 
-getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
+    fleek.upload(input).then((r) => {
 
-isImage(url) {
-  return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
-}
+      console.log(r);
 
-isVideo(url) {
-  return /^https?:\/\/.+\.(avi|mov|mp4|flv)$/.test(url);
-}
+      fleek.listFiles({
+        apiKey: apiKey,
+        apiSecret: apiSecret,
+        prefix: this.state.accounts[0],
+        getOptions: [
+          'bucket',
+          'key',
+          'hash',
+          'publicUrl'
+        ],
+      }).then((r) => {
+        this.setState({ files: r})
+      });
+    });
+  };
 
-isFile(url) {
-  return /^https?:\/\/.+\.(pdf|doc|html|txt)$/.test(url);
-}
-
-imageOrVideo(file) {
-
-  if (this.isVideo(file['publicUrl'])) {
-    return <video controls width="40%">
-    <source src={file['publicUrl']} type="video/mp4" />
-      Sorry, your browser doesn't support embedded videos.
-    </video>
-  } else if (this.isFile(file['publicUrl'])) {
-    return FileStructure(file['publicUrl'], this.state.accounts[0])
+  getRandomInt(max) {
+    return Math.floor(Math.random() * max);
   }
 
-  return <img src={`${file['publicUrl']}`} width="40%"></img>
+  isImage(url) {
+    return /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(url);
+  }
+
+  isVideo(url) {
+    return /^https?:\/\/.+\.(avi|mov|mp4|flv)$/.test(url);
+  }
+
+  isFile(url) {
+    return /^https?:\/\/.+\.(pdf|doc|html|txt)$/.test(url);
+  }
+
+  imageOrVideo(file) {
+
+    if (this.isVideo(file['publicUrl'])) {
+      return <video controls width="40%">
+      <source src={file['publicUrl']} type="video/mp4" />
+        Sorry, your browser doesn't support embedded videos.
+        </video>
+      } else if (this.isFile(file['publicUrl'])) {
+        return FileStructure(file['publicUrl'], this.state.accounts[0])
+      }
+
+      return <img src={`${file['publicUrl']}`} width="40%"></img>
+    }
+
+
+  RequestedAppLink(app) {
+    const handleApproval = async (event) => {
+      event.preventDefault();
+
+      const manager = await contract.methods.manager().call();
+
+      const requestedApps = await contract.methods.getRequestedApps().call();
+
+      console.log(requestedApps)
+
+      const index = requestedApps.findIndex((requestedApp) => requestedApp.name === app.name);
+
+      await contract.methods.approveApp(index).send({
+        from: manager,
+      });
+      console.log("YEEES");
+    }
+
+    const handleDisapproval = async (event) => {
+      event.preventDefault();
+
+      const manager = await contract.methods.manager().call();
+
+      const requestedApps = await contract.methods.getRequestedApps().call();
+
+      const index = requestedApps.findIndex((requestedApp) => requestedApp.name === app.name);
+
+      await contract.methods.disApproveApp(index).send({
+        from: manager,
+      });
+      console.log("OHHH");
+    }
+
+      return(
+        <div style={{
+          display: 'inline-grid',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <div style={{
+            display: 'inline-flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <img src={app.logo_url} height="60px" width="60px"/>
+
+          <div style={{
+            display: 'inline-flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <button style={{
+            minWidth: "100px",
+            maxWidth: "150px",
+            height: "60px",
+            backgroundColor: "#619749"
+          }} onClick={handleApproval}>{app.name}, approve
+          </button>
+          <button style={{
+            minWidth: "100px",
+            maxWidth: "150px",
+            height: "60px",
+            backgroundColor: "#ff3939"
+          }} onClick={handleDisapproval}>{app.name}, disapprove
+          </button>
+          </div>
+        </div>
+        <label style={{
+            maxWidth: "250px",
+            maxHeight: "300px",
+            minWidth: "150px",
+            minHeight: "20px",
+            fontSize: "17px",
+            overflow: "hidden",
+            textOverflow: "clip",
+            textAlign: "left",
+            marginTop: "10px",
+            marginBottom: "20px",
+            marginLeft: "10px",
+            marginRight: "10px"
+          }} >
+          {app.description}
+        </label>
+      </div>
+    );
+}
+
+managerApps() {
+  if (this.state.accounts[0] == this.state.manager) {
+    return (
+
+      <div>
+      <p style={{
+        fontSize: "25px",
+        fontWeight: "bold",
+      }}>
+      Requested apps for Mina OS
+      </p>
+      <ul>
+        {this.state.requestedApps.map((app) => <this.RequestedAppLink name={app.name} url={app.url} logo_url={app.logo_url} description={app.description} key={Math.random()}/>)}
+      </ul>
+      <hr style={{
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
+      height: '30px'
+      }}/>
+      </div>
+
+    );
+  } else {
+    return <hr style={{
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+    height: '30px'
+    }}/>
+  }
 }
 
 
@@ -264,49 +394,51 @@ render() {
         height: '30px'
       }}/>
         <ul>
-          {apps_list.map((app) => <AppLink name={app.name} url={app.url} logo_url={app.logo_url} description={app.description} key={Math.random()}/>)}
+          {this.state.apps.map((app) => <AppLink name={app.name} url={app.url} logo_url={app.logo_url} description={app.description} key={Math.random()}/>)}
         </ul>
         <hr style={{
         backgroundColor: 'transparent',
         borderColor: 'transparent',
         height: '30px'
       }}/>
-        <ul>
-          {this.state.apps.map((app) => <AppStructure appName={app.appName} appLink={app.appLink} key={Math.random()}/>)}
-        </ul>
-        <hr style={{
-        backgroundColor: 'transparent',
-        borderColor: 'transparent',
-        height: '30px'
-      }}/>
+
+      <div>{this.managerApps()}</div>
+
         <form onSubmit={this.onSubmit}>
           <h4>Want to add an app to mina ?</h4>
           <div>
-            <label>Amount of ether</label>
-            <input
-              value={this.state.value}
-              onChange={event => this.setState({ value: event.target.value })}
-            />
-          </div>
-          <div>
             <label>Name of the App</label>
             <input
-              value={this.state.appName}
-              onChange={event => this.setState({ appName: event.target.value })}
+              value={this.state.name}
+              onChange={event => this.setState({ name: event.target.value })}
             />
           </div>
           <div>
-            <label>Link to the App</label>
+            <label>Principal Canister ID</label>
             <input
-              value={this.state.appLink}
-              onChange={event => this.setState({ appLink: event.target.value })}
+              value={this.state.principal_id}
+              onChange={event => this.setState({ principal_id: event.target.value })}
             />
           </div>
           <div>
-            <label>Unique ID</label>
+            <label>Description of the App</label>
             <input
-              value={this.state.id}
-              onChange={event => this.setState({ id: event.target.value })}
+              value={this.state.description}
+              onChange={event => this.setState({ description: event.target.value })}
+            />
+          </div>
+          <div>
+            <label>url</label>
+            <input
+              value={this.state.url}
+              onChange={event => this.setState({ url: event.target.value })}
+            />
+          </div>
+          <div>
+            <label>logo_url</label>
+            <input
+              value={this.state.logo_url}
+              onChange={event => this.setState({ logo_url: event.target.value })}
             />
           </div>
           <button>Enter</button>

@@ -1,29 +1,105 @@
 import web3 from './web3';
 
-const address = '0x7A6C29615eCF83B892FCcF3905799d2d9B738f91';
+const address = '0x439b45Eeb9Ad7BDE5cc9B3D2756E97fbBd5B9B73';
 
 const abi = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "approveApp",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			}
+		],
+		"name": "disApproveApp",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "string",
-				"name": "appName",
+				"name": "name",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "appLink",
+				"name": "principal_id",
 				"type": "string"
 			},
 			{
-				"internalType": "int256",
-				"name": "id",
-				"type": "int256"
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "url",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "logo_url",
+				"type": "string"
 			}
 		],
 		"name": "enterApp",
 		"outputs": [],
-		"stateMutability": "payable",
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "principal_id",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "url",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "logo_url",
+						"type": "string"
+					}
+				],
+				"internalType": "struct minaContract.App[]",
+				"name": "arrayApps",
+				"type": "tuple[]"
+			}
+		],
+		"name": "enterArrayOfApp",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -43,18 +119,28 @@ const abi = [
 		"outputs": [
 			{
 				"internalType": "string",
-				"name": "appName",
+				"name": "name",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "appLink",
+				"name": "principal_id",
 				"type": "string"
 			},
 			{
-				"internalType": "int256",
-				"name": "id",
-				"type": "int256"
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "url",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "logo_url",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -62,29 +148,144 @@ const abi = [
 	},
 	{
 		"inputs": [],
-		"name": "getApps",
+		"name": "getManager",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getPublicApps",
 		"outputs": [
 			{
 				"components": [
 					{
 						"internalType": "string",
-						"name": "appName",
+						"name": "name",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
-						"name": "appLink",
+						"name": "principal_id",
 						"type": "string"
 					},
 					{
-						"internalType": "int256",
-						"name": "id",
-						"type": "int256"
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "url",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "logo_url",
+						"type": "string"
 					}
 				],
 				"internalType": "struct minaContract.App[]",
 				"name": "",
 				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "getRequestedApps",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "principal_id",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "url",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "logo_url",
+						"type": "string"
+					}
+				],
+				"internalType": "struct minaContract.App[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "manager",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "requestedApps",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "principal_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "url",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "logo_url",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",
