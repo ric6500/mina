@@ -118,6 +118,8 @@ class App extends Component {
     const requestedApps = await contract.methods.getRequestedApps().call();
     const manager = await contract.methods.manager().call();
 
+
+
     console.log(manager)
 
     const files = await fleek.listFiles({
