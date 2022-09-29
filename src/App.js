@@ -7,6 +7,7 @@ import apps_list from './apps_list.json';
 import uploadFileContract from './UploadFile'
 import ipfs from './ipfs';
 import fleek from '@fleekhq/fleek-storage-js';
+import DeveloperPage from './developers';
 
 const src =
 "https://storageapi.fleek.co/8b69b791-a113-4a7f-8d37-f4905b484016-bucket/panasonic-hokkaido-and-tokyo-uhd-(www.demolandia.net).mp4";
@@ -60,20 +61,6 @@ function AppLink(app) {
     );
 }
 
-// function AppStructure(app) {
-//   const handleClick = () => {
-//     window.open(app.appLink);
-//   };
-//   return <button style={{
-//           maxWidth: "300px",
-//           maxHeight: "100px",
-//           minWidth: "200px",
-//           minHeight: "60px"
-//         }} onClick={handleClick}>{app.appName}
-//
-//         </button>
-// }
-
 function FileStructure(url, account) {
   const handleClick = () => {
     window.open(url);
@@ -106,7 +93,8 @@ class App extends Component {
       files: [],
       buffers: [],
       file: "",
-      manager: ""
+      manager: "",
+      developerClick: false
     };
     this.captureFile = this.captureFile.bind(this);
     this.onSubmitFile = this.onSubmitFile.bind(this);
@@ -117,8 +105,6 @@ class App extends Component {
     const apps = await contract.methods.getPublicApps().call();
     const requestedApps = await contract.methods.getRequestedApps().call();
     const manager = await contract.methods.manager().call();
-
-
 
     console.log(manager)
 
@@ -162,25 +148,16 @@ class App extends Component {
     await contract.methods.enterArrayOfApp(apps_list).send({
       from: this.state.accounts[0],
     });
+  };
 
-    // console.log(Date.now());
-    //
-    // let initialStart = Date.now();
-    //
-    //
-    // this.setState({ message: 'Stress test in progress' })
-    //
-    // for(let startValue = 2; startValue < 2000000000; startValue++) {
-    //     //console.log(startValue);
-    // }
-    //
-    // console.log(Date.now());
-    //
-    // let finalTiming = Date.now() - initialStart;
-    //
-    // console.log(finalTiming);
-    //
-    // this.setState({ message: 'Stress test ended!!!'});
+  onDeveloperClick = async (event) => {
+    event.preventDefault();
+
+    if (this.state.developerClick) {
+        this.setState({ developerClick: false });
+    } else {
+        this.setState({ developerClick: true });
+    }
   };
 
   captureFile(event) {
@@ -252,6 +229,25 @@ class App extends Component {
       return <img src={`${file['publicUrl']}`} width="40%"></img>
     }
 
+  showDeveloperPage() {
+    if (this.state.developerClick == true)
+    {
+      return <DeveloperPage/>
+    } else
+    {
+      return <h4></h4>
+    }
+  }
+
+  hideShowDeveloperAlert() {
+    if (this.state.developerClick == true)
+    {
+      return "hide"
+    } else
+    {
+      return "show"
+    }
+  }
 
   RequestedAppLink(app) {
     const handleApproval = async (event) => {
@@ -382,19 +378,32 @@ render() {
             fontSize: "30px",
             fontWeight: "bold",
           }}>
-          explore minaOS and use decentralized apps and games everywhere.
+          Welcome to Mina internet operating system
         </p>
         <p style={{
-            fontSize: "30px",
-            fontWeight: "bold",
+            fontSize: "21px",
           }}>
-        without worrying about your local hardware, anymore.
+          use apps, services and games from anywhere on the internet computer in a tap of a button, without the need of installing, configuring or updating any of them. forever.
         </p>
         <hr style={{
         backgroundColor: 'transparent',
         borderColor: 'transparent',
         height: '30px'
       }}/>
+      <p style={{
+          fontSize: "23px",
+          fontWeight: "bold",
+        }}>
+        For developers
+      </p>
+      <button onClick={this.onDeveloperClick}>{this.hideShowDeveloperAlert()}</button>
+      <div>{this.showDeveloperPage()}</div>
+      <h1>{this.state.message}</h1>
+      <hr style={{
+          backgroundColor: 'transparent',
+          borderColor: 'transparent',
+          height: '30px'
+        }}/>
         <ul>
           {this.state.apps.map((app) => <AppLink name={app.name} url={app.url} logo_url={app.logo_url} description={app.description} key={Math.random()}/>)}
         </ul>

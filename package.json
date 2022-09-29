@@ -20,6 +20,7 @@
     "react-fps": "^1.0.6",
     "react-ipfs-uploader": "^1.2.7",
     "react-markdown": "^8.0.3",
+    "react-router-dom": "^6.4.0",
     "react-scripts": "4.0.3",
     "truffle": "^5.5.28",
     "truffle-hdwallet-provider": "^1.0.17",
