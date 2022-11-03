@@ -1,6 +1,6 @@
 import web3 from './web3';
 
-const address = '0x1676FDEfe5cdA539038CAecC286f8d2c15cf1887';
+const address = '0x439b45Eeb9Ad7BDE5cc9B3D2756E97fbBd5B9B73';
 
 const abi = [
 	{
@@ -93,7 +93,7 @@ const abi = [
 					}
 				],
 				"internalType": "struct minaContract.App[]",
-				"name": "apps",
+				"name": "arrayApps",
 				"type": "tuple[]"
 			}
 		],
@@ -106,6 +106,45 @@ const abi = [
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "apps",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "principal_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "url",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "logo_url",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -195,6 +234,58 @@ const abi = [
 				"internalType": "struct minaContract.App[]",
 				"name": "",
 				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "manager",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "requestedApps",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "principal_id",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "url",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "logo_url",
+				"type": "string"
 			}
 		],
 		"stateMutability": "view",

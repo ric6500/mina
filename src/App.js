@@ -104,7 +104,7 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts();
     const apps = await contract.methods.getPublicApps().call();
     const requestedApps = await contract.methods.getRequestedApps().call();
-    const manager = await contract.methods.manager().call();
+    const manager = await contract.methods.getManager().call();
 
     console.log(manager)
 
@@ -253,7 +253,7 @@ class App extends Component {
     const handleApproval = async (event) => {
       event.preventDefault();
 
-      const manager = await contract.methods.manager().call();
+      const manager = await contract.methods.getManager().call();
 
       const requestedApps = await contract.methods.getRequestedApps().call();
 
@@ -270,7 +270,7 @@ class App extends Component {
     const handleDisapproval = async (event) => {
       event.preventDefault();
 
-      const manager = await contract.methods.manager().call();
+      const manager = await contract.methods.getManager().call();
 
       const requestedApps = await contract.methods.getRequestedApps().call();
 
@@ -398,7 +398,6 @@ render() {
       </p>
       <button onClick={this.onDeveloperClick}>{this.hideShowDeveloperAlert()}</button>
       <div>{this.showDeveloperPage()}</div>
-      <h1>{this.state.message}</h1>
       <hr style={{
           backgroundColor: 'transparent',
           borderColor: 'transparent',
@@ -460,7 +459,7 @@ render() {
         height: '30px'
       }}/>
         <h4>Ready for a stress test?</h4>
-        <button onClick={this.onClick}>Start now!</button>
+        <button onClick={this.enterArrayOfApp}>Start now!</button>
         <h1>{this.state.message}</h1>
         <hr style={{
         backgroundColor: 'transparent',
