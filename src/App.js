@@ -372,11 +372,17 @@ render() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{this.state.accounts[0]}</p>
+        <p style={{
+          fontSize: "16px",
+        }}>mina test version 1.0</p>
+        <p style={{
+          fontSize: "23px",
+        }}>account: {this.state.accounts[0]}</p>
         <img src={logo} className="App-logo" alt="logo" />
         <p style={{
             fontSize: "30px",
             fontWeight: "bold",
+            textAlign: "left"
           }}>
           Welcome to Mina internet operating system
         </p>
